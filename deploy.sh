@@ -13,8 +13,15 @@ cd ./src/.vuepress/dist
 git add -A
 git commit -m 'deploy'
 
-git remote add origin https://gitee.com/RyanSu/blog.git
-# 如果部署到 https://<USERNAME>.github.io/<REPO>
+# --- 添加远程仓库检测逻辑 ---
+# 检查 'origin' 远程仓库是否存在
+if git remote -v | grep -q '^origin'; then
+  echo "Remote 'origin' already exists. Skipping addition."
+else
+  echo "Remote 'origin' not found. Adding..."
+  git remote add origin https://gitee.com/RyanSu/blog.git
+  echo "Remote 'origin' added successfully."
+fi
 
 git push -u origin "main"
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
