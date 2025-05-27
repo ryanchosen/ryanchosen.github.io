@@ -12,3 +12,20 @@
 .vp-blog-hero-description,.vp-blogger-name{
     font-style: oblique;
 }
+.vp-navbar,.vp-hero-slide-down-button{
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: 
+        visibility 0.5s ease-in-out,
+        transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    &.slowdown {
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+.theme-container .vp-page{
+    padding-top:0!important;
+}
+.vp-blog-hero.hero-fullscreen {
+    height: 100vh!important
+}

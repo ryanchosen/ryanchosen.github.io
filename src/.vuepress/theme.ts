@@ -12,7 +12,7 @@ export default hopeTheme({
   },
   favicon: "/assets/images/icon.png",
   logo: "/assets/images/avatar.png",
-  
+  fullscreen:true,
   repo: "",
 
   docsDir: "src",

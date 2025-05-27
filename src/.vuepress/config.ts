@@ -38,7 +38,32 @@ export default defineUserConfig({
             } else {
               run();
             }
-        })();
+
+          const navbarElement = document.querySelector('.vp-navbar');
+          const navbarBTN = document.querySelector('.vp-hero-slide-down-button');
+
+          // 检查元素是否存在
+              // 使用 setTimeout 在 1000 毫秒 (1秒) 后执行操作
+              setTimeout(() => {
+                  // 给元素添加 'slowdown' 类
+                  navbarElement.classList.add('slowdown');
+                  navbarBTN.classList.add('slowdown');
+              }, 1000);
+              })();
+              // 禁用滚动
+      function preventScroll(e) {
+        e.preventDefault();
+      }
+      window.addEventListener('wheel', preventScroll, { passive: false });
+      window.addEventListener('touchmove', preventScroll, { passive: false });
+      window.addEventListener('scroll', preventScroll, { passive: false });
+
+      setTimeout(function() {
+        // 恢复滚动
+        window.removeEventListener('wheel', preventScroll, { passive: false });
+        window.removeEventListener('touchmove', preventScroll, { passive: false });
+        window.removeEventListener('scroll', preventScroll, { passive: false });
+      }, 1500);
       `,
     ],
   ]
