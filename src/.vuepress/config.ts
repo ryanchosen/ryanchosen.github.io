@@ -30,7 +30,7 @@ export default defineUserConfig({
                 setTimeout(function() {
                   if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
                   if (loader1 && loader1.parentNode) loader1.parentNode.removeChild(loader1);
-                }, 200); // 等待过渡动画结束
+                }, 400); // 等待过渡动画结束
               }, 1200); 
             }
             if (document.readyState === 'loading') {
