@@ -13,7 +13,7 @@ export default hopeTheme({
   favicon: "/assets/images/icon.png",
   logo: "/assets/images/avatar.png",
   
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "",
 
   docsDir: "src",
 
