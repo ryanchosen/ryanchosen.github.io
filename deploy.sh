@@ -19,7 +19,7 @@ if git remote -v | grep -q '^origin'; then
   echo "Remote 'origin' already exists. Skipping addition."
 else
   echo "Remote 'origin' not found. Adding..."
-  git remote add origin https://gitee.com/RyanSu/blog.git
+  git remote add origin git@github.com:ryanchosen/blog.git
   echo "Remote 'origin' added successfully."
 fi
 
