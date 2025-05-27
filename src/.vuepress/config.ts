@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: "/",
 
   lang: "zh-CN",
-  title: "Blog",
+  title: "Blog111",
   description: "My Blog",
   theme,
   head: [
