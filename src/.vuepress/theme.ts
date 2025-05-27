@@ -5,7 +5,7 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://mister-hope.github.io",
-
+  darkmode: "toggle",
   author: {
     name: "Ryan Su",
     // url: "https://mister-hope.com",
