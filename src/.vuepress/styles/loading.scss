@@ -1,0 +1,83 @@
+/* docs/.vuepress/styles/loading.scss */
+
+/* 通用重置，注意这可能会影响主题的默认样式，谨慎使用 */
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+/* 建议为你的加载动画单独创建一个容器 */
+// .custom-loader-overlay {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     z-index: 9999; /* 确保它在最上层 */
+//     transition: opacity 0.5s ease-out; /* 用于渐隐动画 */
+// }
+
+// ...existing code...
+
+.loader,
+.custom-loader-overlay {
+  transition: opacity 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}
+
+// ...existing code...
+.loader {
+    width: 125px;
+    perspective: 200px;
+    z-index: 9999;
+    top: 70%;
+    left: 46%;
+    position: fixed;
+}
+.loader::before,
+.loader::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: transparent; /* 初始透明 */
+    position: absolute;
+    animation: jumping 0.5s ease infinite alternate;
+}
+.loader::before {
+    left: 0;
+}
+.loader::after {
+    right: 0;
+    animation-delay: 0.15s;
+}
+
+@keyframes jumping {
+    0% {
+        transform: scale(1) translateY(0) rotateX(0);
+        box-shadow: 0 0 0 transparent;
+    }
+    100% {
+        background-color: #fff; /* 方块跳起时的颜色 */
+        transform: scale(1.2) translateY(-55px) rotateX(45deg);
+        box-shadow: 0 55px 100px #fff;
+    }
+}
+
+.custom-loader-overlay { /* 建议给这个覆盖层一个有意义的类名，比如 .loader1-overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 125vw; /* 注意这里是 125vw，如果意图是 100% 宽度，应改为 100vw */
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.3); /* 半透明白色背景 */
+    display: flex; /* 启用 Flexbox 布局 */
+    align-items: center; /* 垂直居中对齐子元素 */
+    justify-content: center; /* 水平居中对齐子元素 */
+    z-index: 9999; /* 确保它位于页面最上层 */
+}
