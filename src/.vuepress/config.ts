@@ -16,6 +16,7 @@ export default defineUserConfig({
       `\
         // 创建一个 loader 元素并插入到 body
         (function() {
+          console.log('我运行了')
           var loader = document.createElement('div');
           loader.className = 'loader';
           document.body.appendChild(loader);
