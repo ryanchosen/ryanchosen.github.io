@@ -177,7 +177,7 @@ export default hopeTheme({
 
     icon: {
       // prefix: "",
-      assets: "//at.alicdn.com/t/c/font_3180091_appr2rv4h04.css",
+      assets: "//at.alicdn.com/t/c/font_3180091_lkuvauo0j9b.css",
       type: "iconfont",
     },
 
