@@ -25,7 +25,7 @@
       if (navbarBTN) {
         navbarBTN.classList.add("slowdown");
       }
-    }, 500);
+    }, 750);
 
     // Set a timeout to fade out the loaders after 1200ms
     setTimeout(function () {
