@@ -9,11 +9,11 @@ export default navbar([
     prefix: "/posts/",
     children: [
       {
-        text: "苹果",
+        text: "Bare Deployment",
         icon: "pen-to-square",
-        prefix: "apple/",
+        prefix: "bare-deployment/",
         children: [
-          { text: "苹果1", icon: "pen-to-square", link: "1" },
+          { text: "Mysql", icon: "pen-to-square", link: "mysql" },
           { text: "苹果2", icon: "pen-to-square", link: "2" },
           "3",
           "4",
