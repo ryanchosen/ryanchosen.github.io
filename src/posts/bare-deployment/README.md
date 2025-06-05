@@ -1,5 +1,5 @@
 ---
-title: K8S主要功能与配置演示
+title: Some Bare Deployment
 index: false
 icon: laptop-code
 category:

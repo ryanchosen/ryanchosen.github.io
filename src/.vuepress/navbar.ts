@@ -20,14 +20,14 @@ export default navbar([
         ],
       },
       {
-        text: "香蕉",
+        text: "Cheet sheet",
         icon: "pen-to-square",
-        prefix: "banana/",
+        prefix: "cheet-sheet/",
         children: [
           {
-            text: "香蕉 1",
+            text: "Shell",
             icon: "pen-to-square",
-            link: "1",
+            link: "shell"
           },
           {
             text: "香蕉 2",
