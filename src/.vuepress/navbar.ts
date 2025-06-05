@@ -5,53 +5,40 @@ export default navbar([
   // "/demo/",
   {
     text: "Docs",
-    icon: "undraw_party-streamer",
-    prefix: "/posts/",
+    prefix: "/docs/",
     children: [
       {
-        text: "Bare Deployment",
-        icon: "pen-to-square",
-        prefix: "bare-deployment/",
-        children: [
-          { text: "Mysql", icon: "pen-to-square", link: "mysql" },
-          { text: "苹果2", icon: "pen-to-square", link: "2" },
-          "3",
-          "4",
-        ],
-      },
-      {
         text: "Cheet sheet",
-        icon: "pen-to-square",
         prefix: "cheet-sheet/",
         children: [
           {
             text: "Shell",
-            icon: "pen-to-square",
             link: "shell"
-          },
-          {
-            text: "香蕉 2",
-            icon: "pen-to-square",
-            link: "2",
-          },
-          "3",
-          "4",
+          }
         ],
       },
-      { text: "樱桃", icon: "pen-to-square", link: "cherry" },
-      { text: "火龙果", icon: "pen-to-square", link: "dragonfruit" },
-      "tomato",
-      "strawberry",
+      {
+        text: "Bare Deployment",
+        prefix: "bare-deployment/",
+        children: [
+          { text: "Mysql",  link: "mysql" },
+        ],
+      },
+      {
+        text: "Optimization",
+        prefix: "optimization/",
+        children: [
+          { text: "Nginx",  link: "nginx" },
+        ],
+      },
     ],
   },
   {
     text: "Codes",
-    icon: "undraw_code",
     prefix: "/posts/",
     children: [
       {
         text: "苹果",
-        icon: "pen-to-square",
         prefix: "apple/",
         children: [
           { text: "苹果1", icon: "pen-to-square", link: "1" },

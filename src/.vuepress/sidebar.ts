@@ -2,12 +2,22 @@ import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
   "/": [
-    "",
+    {
+      text: "博客主页",
+      link: "/"
+    },
      {
       text: "K8S",
-      icon: "laptop-code",
+      // icon: "laptop-code",
       prefix: "demo/",
-      link: "K8S/",
+      // link: "K8S/",
+      children: "structure",
+      collapsible: true
+    },
+     {
+      text: "Docs",
+      prefix: "docs/",
+      // link: "K8S/",
       children: "structure",
       collapsible: true
     },
@@ -17,6 +27,7 @@ export default sidebar({
       prefix: "demo/",
       link: "demo/",
       children: "structure",
+      collapsible: true
     },
     {
       text: "文章",

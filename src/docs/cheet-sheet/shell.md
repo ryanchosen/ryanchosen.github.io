@@ -2,7 +2,7 @@
 # icon: pen-to-square
 date: 2019-09-04
 category:
-  - 软件安装
+  - 命令速查
 ---
 
 # Shell速查

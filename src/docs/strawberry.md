@@ -1,5 +1,4 @@
 ---
-icon: pen-to-square
 date: 2022-01-11
 cover: /assets/images/ae842bd9fd9b7acf5ad47d736ec039f8.png
 # category:
