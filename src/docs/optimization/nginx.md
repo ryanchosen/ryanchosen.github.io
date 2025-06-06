@@ -7,7 +7,81 @@ category:
 
 # Nginx优化
 
+## 启用reuseport
+在TCP三次握手的时候，Linux内核会维护两个队列，分别是：
 
+1、半连接队列，也称SYN队列。
+
+2、全连接队列，也称 accepet队列。
+
+服务端收到客户端发起的SYN请求后，内核会把该连接存储到半连接队列，并向客户端响应SYN+ACK，接着客户端会返回ACK，服务端收到第三次握
+手的ACK 后，内核会把连接从半连接队列移除，然后创建新的完全的连接，并将其添加到 accept队列，等待进程调用accept 函数时把连接取出来。
+
+![alt text](PixPin_2025-06-06_11-41-51.png)
+半连接队列和全连接队列都有最大长度限制，超过限制时，请求会被去弃，并返回RST
+![alt text](PixPin_2025-06-06_11-50-06.png)
+TCP全连接队列的最大值取决于min（somaxconn，backlog)。
+
+TCP半连接队列最大值取决于max_syn_backlog、somaxconn、backlog
+```
+somaxconn tcp_max_syn_backlog 是 Linux 内核的参数，默认值都是 128
+sysctl -w net.core.somaxconn=65530  # 设置全连接池大小
+sysctl -w net.ipv4.tcp_max_syn_backlog=10240 # 设置半链接池大小
+ 
+ 
+backlog 是 listen(int sockfd, int backlog) 函数中的 backlog 大小，Nginx 默认值是 511。
+可以通过nginx.conf配置文件设置其长度，需重启nginx生效。
+server {
+  listen 80 default backlog=10240;
+  servarname localhost;
+  ...
+} 
+```
+### Nginx的两种工作模式
+第一种：1个master主进程+多个worker子进程（worker进程禁用reuseport模式，默认）
+
+```
+# 1、工作模式介绍（共享监听，共享一个全连接队列）
+在这种方式下
+（1）、主进程执行 bind() + listen() 后，创建多个子进程；
+（2）、然后，在每个子进程中，都通过 accept() 或 epoll_wait() ，来处理相同的套接字。此时所有子进程/线程共享一个全连接队列
+ 
+ 
+2、特点：所有worker进程共享一个listener全连接队列
+ 
+3、优点：因为全连接队列是共享的，所以当某个worker进程繁忙的情况下，它去全连接队列里accpet的能力会降低，但其他空闲的worker进程则
+不受影响，这会平衡所有worker进程的压力
+ 
+4、缺点：多个worker进程争抢会带来额外的损耗
+```
+第二种：1个master主进程+多个worker子进程(worker进程启用reuseport模式）
+
+```
+1、工作模式介绍（单独监听，独享自己的全连接队列）
+在这种方式下，需要开启 SO_REUSEPORT 选项，所有的worker进程会都监听相同的接口。
+然后由内核负责将请求负载均衡到这些监听进程中去，相当于每个进程/线程独享自己的那一个 listener 的全链接队列，
+ 
+ 
+2、特点：每个worker进程都独享自己的listener全连接队列
+ 
+3、优点：
+不需要多个进程/线程竞争某个公共资源，减少竞争的资源消耗，处理效率自然提高了。
+ 
+4、缺点：
+独享可以减少竞争，但会造成分配不均衡，因为每个worker自己listener管理的全连接队列无法分享给别的worker进程，你就无法做到
+在你自己的worker繁忙的情况下，让其他空闲的worker进程来accpet()访问你的全连接队列从而分摊你的压力，这会导致单个链接的请求的延迟增大，cpu分配不均匀
+```
+
+
+修改参数如下，只需要在listen 端口后面加上reuseport即可：
+
+```
+server {
+        listen 80 reuseport;
+        listen 443 ssl http2 reuseport;
+        server_name   xxx.xxx.com;
+        charset utf-8;
+```
 ## CPU亲和
 ### worker_cpu_affinity的指令介绍
 
