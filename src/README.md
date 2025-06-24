@@ -3,7 +3,8 @@ home: true
 layout: Blog
 icon: house
 title: 博客主页
-bgImage: /assets/images/default.jpg
+# bgImage: /assets/images/default.jpg
+bgImage: https://cdn.nlark.com/yuque/0/2025/jpeg/2992830/1750753109688-0f413f03-523e-4e1f-a5dd-82e1a732fe2a.jpeg?x-oss-process=image%2Fformat%2Cwebp%2Finterlace%2C1
 heroImage: /assets/images/name.svg
 heroText: ""
 heroFullScreen: true
