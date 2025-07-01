@@ -1,6 +1,8 @@
 (function () {
   console.log('222',window.location.pathname);
-  if (window.location.pathname === "/") {
+  function load() { 
+    console.log('222',window.location.pathname);
+    if (window.location.pathname === "/") {
     function run() {
       // Create and append the main loader div
       var loader = document.createElement("div");
@@ -74,4 +76,8 @@
       window.removeEventListener("scroll", preventScroll, { passive: false });
     }, 1500);
   }
+  }
+  setTimeout(() => {
+    load()
+  }, 0);
 })();
