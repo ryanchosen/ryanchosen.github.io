@@ -10,13 +10,20 @@ export default defineClientConfig({
     router.beforeEach((to, from, next) => {
       if (to.path === "/" && from.path !== "/") {
         console.log("全局：每次从非首页跳转到首页了！");
-        const navbarBTN = document.querySelector(".vp-hero-slide-down-button");
-          setTimeout(() => {
-            navbar.classList.add("slowdown");
-          if (navbarBTN) {
-            navbarBTN.classList.add("slowdown");
-          }
-        }, 500);
+        const scriptElement = document.createElement('script');
+        scriptElement.src = '/script.js';
+        document.body.appendChild(scriptElement);
+        scriptElement.onload = () => {
+          console.log('Script loaded successfully!');
+          // You can now use functions or variables defined in script.js
+        };
+        // const navbarBTN = document.querySelector(".vp-hero-slide-down-button");
+        // setTimeout(() => {
+        //     navbar.classList.add("slowdown");
+        //   if (navbarBTN) {
+        //     navbarBTN.classList.add("slowdown");
+        //   }
+        // }, 500);
       } else if (to.path === "/" && from.path === "/") {
         console.log("全局：首页刷新或直接访问首页。");
       }
