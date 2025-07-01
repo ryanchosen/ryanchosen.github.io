@@ -17,6 +17,9 @@ export default defineClientConfig({
           console.log('Script loaded successfully!');
           // You can now use functions or variables defined in script.js
         };
+        setTimeout(() => {
+          scriptElement.remove();
+        }, 2000);
         // const navbarBTN = document.querySelector(".vp-hero-slide-down-button");
         // setTimeout(() => {
         //     navbar.classList.add("slowdown");
