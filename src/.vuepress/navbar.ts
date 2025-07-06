@@ -5,6 +5,7 @@ export default navbar([
   // "/demo/",
   {
     text: "Docs",
+    icon: "undraw_party-streamer",
     prefix: "/docs/",
     children: [
       {
@@ -35,6 +36,7 @@ export default navbar([
   },
   {
     text: "Codes",
+    icon: "undraw_asymmetric-parallels",
     prefix: "/posts/",
     children: [
       {
