@@ -18,6 +18,7 @@
       const navbarElement = document.querySelector(".vp-navbar");
       const navbarBTN = document.querySelector(".vp-hero-slide-down-button");
       console.log(777);
+      navbarElement.classList.add("invisible");
       // Add the 'slowdown' class to the navbar elements after 1000ms (1 second)
       setTimeout(() => {
         if (navbarElement) {

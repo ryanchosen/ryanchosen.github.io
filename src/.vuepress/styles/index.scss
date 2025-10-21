@@ -14,10 +14,13 @@
 }
 .vp-navbar,.vp-hero-slide-down-button{
     // visibility: hidden;
-    transform: translateY(-100%);
-    transition: 
-        // visibility 0.5s cubic-bezier(0, 0, 1, 1),
-        transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1);
+    
+    &.invisible {
+        transform: translateY(-100%);
+    }
+    // transition: 
+    //     // visibility 0.5s cubic-bezier(0, 0, 1, 1),
+    //     transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1);
     &.slowdown {
         // visibility: visible;
         transform: translateY(0);
