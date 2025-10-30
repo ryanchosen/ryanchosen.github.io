@@ -29,7 +29,7 @@ export default hopeTheme({
 
   // 博客相关
   blog: {
-    description: "a senior IT engineer",
+    description: "Senior IT Engineer",
     intro: "/intro.html",
     medias: {
       // Baidu: "https://example.com",
@@ -95,7 +95,7 @@ export default hopeTheme({
     attrs: true,
     codeTabs: true,
     component: true,
-    demo: true,
+    // demo: true,
     figure: true,
     gfm: true,
     imgLazyload: true,

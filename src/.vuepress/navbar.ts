@@ -35,56 +35,18 @@ export default navbar([
     ],
   },
   {
-    text: "Codes",
-    icon: "undraw_asymmetric-parallels",
-    prefix: "/posts/",
-    children: [
-      {
-        text: "苹果",
-        prefix: "apple/",
-        children: [
-          { text: "苹果1", icon: "pen-to-square", link: "1" },
-          { text: "苹果2", icon: "pen-to-square", link: "2" },
-          "3",
-          "4",
-        ],
-      },
-      {
-        text: "香蕉",
-        icon: "pen-to-square",
-        prefix: "banana/",
-        children: [
-          {
-            text: "香蕉 1",
-            icon: "pen-to-square",
-            link: "1",
-          },
-          {
-            text: "香蕉 2",
-            icon: "pen-to-square",
-            link: "2",
-          },
-          "3",
-          "4",
-        ],
-      },
-      { text: "樱桃", icon: "pen-to-square", link: "cherry" },
-      { text: "火龙果", icon: "pen-to-square", link: "dragonfruit" },
-      "tomato",
-      "strawberry",
-    ],
-  },
-  {
     text: "K8S",
-    icon: "undraw_heart-fun",
-    prefix: "/docs/",
+    icon: "undraw_asymmetric-parallels",
+    prefix: "/K8S/",
     children: [
       {
         text: "K8S",
         icon: "pen-to-square",
-        prefix: "K8S/",
+        // prefix: "K8S/",
         children: [
           { text: "k8s 自动扩缩容HPA原理及adapter配置详解", icon: "pen-to-square", link: "1" },
+          { text: "k8s GPU 调度", icon: "pen-to-square", link: "2" },
+          { text: "k8s 上安装MetalLB和Nginx Ingress", icon: "pen-to-square", link: "3" },
         ],
       }
     ],
@@ -92,7 +54,7 @@ export default navbar([
   {
     text: "Clouds",
     icon: "undraw_cloud",
-    prefix: "/docs/",
+    prefix: "/Clouds/",
     children: [
       {
         text: "阿里云迁移",

@@ -9,12 +9,12 @@ export default sidebar({
      {
       text: "K8S",
       // icon: "laptop-code",
-      prefix: "demo/",
+      prefix: "K8S/",
       // link: "K8S/",
       children: "structure",
       collapsible: true
     },
-     {
+    {
       text: "Docs",
       prefix: "docs/",
       // link: "K8S/",
@@ -22,24 +22,11 @@ export default sidebar({
       collapsible: true
     },
     {
-      text: "如何使用",
-      icon: "laptop-code",
-      prefix: "demo/",
-      link: "demo/",
+      text: "Clouds",
+      prefix: "Clouds/",
+      // link: "K8S/",
       children: "structure",
       collapsible: true
-    },
-    {
-      text: "文章",
-      icon: "book",
-      prefix: "posts/",
-      children: "structure",
-    },
-    "intro",
-    {
-      text: "幻灯片",
-      icon: "person-chalkboard",
-      link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
     },
   ],
 });
